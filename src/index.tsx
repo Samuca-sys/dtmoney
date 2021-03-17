@@ -6,7 +6,7 @@ import { App } from './App';
 createServer({
   routes() {
     this.namespace = 'api'; //namespace by /api route and so on
-    this.get('/transaction', () => {//get method by /transaction route
+    this.get('/transactions', () => {//get method by /transactions route list
       return [
         {
           id: 1,
