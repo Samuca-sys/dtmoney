@@ -1,13 +1,14 @@
 import { useEffect } from "react";
+import { api } from "../../services/api";
 import { Container } from "./style";
 
 export function TransactionTable() {
-  //Chama rota ficticia, recebe a resposta, 
-  //converte paraa JSON e apresenta via console.log
+
+  //request a transactions list converted to JSON from axios api
+  //then show through console.log
   useEffect(() => {
-    fetch('http://localhost:3000/api/transaction')
-      .then(response => response.json())
-      .then(data => console.log(data))
+    api.get('transactions')
+      .then(response => console.log(response.data))
   }, []);
 
   return (
