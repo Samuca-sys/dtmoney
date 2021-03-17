@@ -30,7 +30,7 @@ html {
 
   body { 
     background: var(--background);
-    -webkit-font-smoothing: antialiaded//fonte mais nítida
+    -webkit-font-smoothing: antialiaded//sharper font
   }
 
   body, input, textarea, button {
