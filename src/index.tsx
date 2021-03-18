@@ -18,6 +18,14 @@ createServer({
         }
       ]
     })
+    //post method by /transactions route list
+    //schema = database, request = data
+    this.post('/transactions', (shema, request) => {
+      //data needs to be converted from string to JSON
+      const data = JSON.parse(request.requestBody)
+
+      return data;
+    })
   }
 })
 
