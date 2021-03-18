@@ -5,6 +5,7 @@ import closeImg from '../../assets/close.svg'
 import incomeImg from '../../assets/income.svg'
 import outcomeImg from '../../assets/outcome.svg'
 import React, { FormEvent, useState } from 'react';
+import { api } from '../../services/api';
 
 interface NewTransactionModalProps {
   isOpen: boolean;
@@ -13,7 +14,7 @@ interface NewTransactionModalProps {
 
 export function NewTransactionModal({ isOpen, onRequestClose }: NewTransactionModalProps) {
   const [title, setTitle] = useState('');
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useState(1);
   const [category, setCategory] = useState('')
   const [type, setType,] = useState('deposit');
 
@@ -22,12 +23,14 @@ export function NewTransactionModal({ isOpen, onRequestClose }: NewTransactionMo
     //prevent the default access to another route after form submit
     event.preventDefault();
 
-    console.log(
+    const data = {//data sent by method post route
       title,
       value,
       category,
-      type
-    )
+      type,
+    }
+
+    api.post('/transactions', data)//method post route 
   }
 
   return (
@@ -45,7 +48,7 @@ export function NewTransactionModal({ isOpen, onRequestClose }: NewTransactionMo
         <img src={closeImg} alt="Fechar modal" />
       </button>
 
-      <Container onClick={handleCreateNewTransaction}>
+      <Container onSubmit={handleCreateNewTransaction}>
         <h2>Cadastrar transação</h2>
         <input
           placeholder="Título"
@@ -57,6 +60,7 @@ export function NewTransactionModal({ isOpen, onRequestClose }: NewTransactionMo
         <input
           type="number"
           placeholder="Valor"
+          min="1"
           value={value}
           //event.target.value always returns a string,
           //then it's need to convert to Number
