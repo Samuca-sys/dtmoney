@@ -52,36 +52,36 @@ export const TransactionTypeContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 0.5rem;
+`
 
-  button {
-    height: 4rem;
-    border: 1px solid var(--input-color);
-    border-radius: 0.25rem;
+export const RadioBox = styled.button` 
+  height: 4rem;
+  border: 1px solid var(--input-color);
+  border-radius: 0.25rem;
 
-    background: transparent;
+  background: transparent;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    transition: border-color 0.2s;
+  transition: border-color 0.2s;
 
-    &:hover {
-      border-color: 
-        ${darken(0.1, '#D7D7D7')};//polished function
-    }
- 
-    img {
-      height: 20px;
-      width: 20px;
-    }
-
-    span {
-      display: inline-block;//to unlock margin attribute
-      margin-left: 1rem;
-      color: var(--text-title);
-      font-size: 1rem;
-    }
-    
+  &:hover {
+    border-color: 
+      ${darken(0.1, '#D7D7D7')};//polished function
   }
+
+  img {
+    height: 20px;
+    width: 20px;
+  }
+
+  span {
+    display: inline-block;//to unlock margin attribute
+    margin-left: 1rem;
+    color: var(--text-title);
+    font-size: 1rem;
+  }
+
 `
