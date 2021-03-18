@@ -53,13 +53,17 @@ export const TransactionTypeContainer = styled.div`
   grid-template-columns: repeat(2, 1fr);
   gap: 0.5rem;
 `
-
-export const RadioBox = styled.button` 
+interface RadioBoxProps {
+  isActive: boolean;
+}
+//to set isActive propriety in NewTransactionModal.tsx
+export const RadioBox = styled.button<RadioBoxProps>`
   height: 4rem;
   border: 1px solid var(--input-color);
   border-radius: 0.25rem;
 
-  background: transparent;
+  //${(props) => { return props.isActive ? '#CCC' : 'transparent' }}
+  background: ${(props) => props.isActive ? '#CCC' : 'transparent'};
 
   display: flex;
   align-items: center;
@@ -83,5 +87,4 @@ export const RadioBox = styled.button`
     color: var(--text-title);
     font-size: 1rem;
   }
-
 `
