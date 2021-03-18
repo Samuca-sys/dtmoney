@@ -1,5 +1,5 @@
 import Modal from 'react-modal';
-import { Container, TransactionTypeContainer } from './styles';
+import { Container, TransactionTypeContainer, RadioBox } from './styles';
 
 import closeImg from '../../assets/close.svg'
 import incomeImg from '../../assets/income.svg'
@@ -12,6 +12,7 @@ interface NewTransactionModalProps {
 }
 
 export function NewTransactionModal({ isOpen, onRequestClose }: NewTransactionModalProps) {
+
   return (
     <Modal
       isOpen={isOpen}
@@ -33,20 +34,23 @@ export function NewTransactionModal({ isOpen, onRequestClose }: NewTransactionMo
         <input type="number" placeholder="Valor"
         />
         <TransactionTypeContainer>
-          <button type="button">
+          <RadioBox
+            type="button"
             <img src={incomeImg} alt="Sinal de entradas" />
             <span>Entrada</span>
-          </button>
+          </RadioBox>
 
-          <button type="button">
-            <img src={outcomeImg} alt="Sinal de entradas" />
-            <span>Saída</span>
-          </button>
+        <RadioBox
+          type="button"
+        >
+          <img src={outcomeImg} alt="Sinal de entradas" />
+          <span>Saída</span>
+        </RadioBox>
         </TransactionTypeContainer>
-        <input placeholder="Categoria" />
-        <button type="submit">Cadastrar</button>
+      <input placeholder="Categoria" />
+      <button type="submit">Cadastrar</button>
 
       </Container>
-    </Modal>
+    </Modal >
   )
 }
