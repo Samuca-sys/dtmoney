@@ -1,14 +1,25 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { api } from "../../services/api";
 import { Container } from "./style";
 
+interface Transaction {
+  id: number,
+  title: string,
+  type: string,
+  category: string
+  amount: string,
+  createdAt: string
+}
+
 export function TransactionTable() {
+  //state receives Transaction interface as transaction array
+  const [transactions, setTransactions] = useState<Transaction[]>([]);
 
   //request a transactions list converted to JSON from axios api
-  //then show through console.log
+  //then show through setState
   useEffect(() => {
     api.get('transactions')
-      .then(response => console.log(response.data))
+      .then(response => setTransactions(response.data.transactions))
   }, []);
 
   return (
@@ -24,18 +35,16 @@ export function TransactionTable() {
         </thead>
 
         <tbody>
-          <tr>
-            <td>Desenvolvimento</td>
-            <td className="deposit">R$12.000</td>
-            <td>Desenvolvimento</td>
-            <td>10/02/2021</td>
-          </tr>
-          <tr>
-            <td>Aluguel</td>
-            <td className="withdraw">-R$1.000</td>
-            <td>Desenvolvimento</td>
-            <td>10/03/2021</td>
-          </tr>
+          {transactions.map(transaction => (
+            //for each transaction return an tr element
+            //map -> necessary a key(identifier)
+            <tr key={transaction.id}>
+              <td>{transaction.title}</td>
+              <td className={transaction.type}>{transaction.amount}</td>
+              <td>{transaction.category}</td>
+              <td>{transaction.createdAt}</td>
+            </tr>
+          ))}
 
         </tbody>
       </table>
