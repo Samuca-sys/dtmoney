@@ -2,12 +2,37 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { createServer, Model } from 'miragejs'
 import { App } from './App';
-import schema from 'miragejs/orm/schema';
 
 createServer({
   models: {
     //Fictional table 
     transaction: Model
+  },
+
+  //pre-registered data
+  seeds(server) {
+    server.db.loadData({
+
+      //Model in plural form
+      transactions: [
+        {
+          id: 1,
+          title: 'Freelance de website',
+          type: 'deposit',
+          category: 'Desenvolvimento',
+          amount: 6000,
+          createdAt: new Date('2021-02-12 09:00:00'),
+        },
+        {
+          id: 2,
+          title: 'Freelance de website',
+          type: 'withdray',
+          category: 'Imóvel',
+          amount: 1100,
+          createdAt: new Date('2021-02-14 11:00:00'),
+        }
+      ],
+    })
   },
 
   routes() {
