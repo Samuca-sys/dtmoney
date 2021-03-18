@@ -7,7 +7,7 @@ interface Transaction {
   title: string,
   type: string,
   category: string
-  amount: string,
+  amount: number,
   createdAt: string
 }
 
@@ -40,9 +40,20 @@ export function TransactionTable() {
             //map -> necessary a key(identifier)
             <tr key={transaction.id}>
               <td>{transaction.title}</td>
-              <td className={transaction.type}>{transaction.amount}</td>
+              <td className={transaction.type}>
+                { //convert amount to BRL currency format 
+                  //using Intl(Browser Api)
+                  new Intl.NumberFormat('pt-BR', {
+                    style: 'currency',
+                    currency: 'BRL'
+                  }).format(transaction.amount)}
+              </td>
               <td>{transaction.category}</td>
-              <td>{transaction.createdAt}</td>
+              <td>
+                { //convert create to date, then to BR date format 
+                  new Intl.DateTimeFormat('pt-BR')
+                    .format(new Date(transaction.createdAt))}
+              </td>
             </tr>
           ))}
 
