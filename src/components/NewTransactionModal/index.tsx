@@ -1,7 +1,6 @@
 import React, { FormEvent, useContext, useState } from 'react';
 import Modal from 'react-modal';
 import { TransactionsContext } from '../../TransactionsContext';
-import { api } from '../../services/api';
 
 import closeImg from '../../assets/close.svg'
 import incomeImg from '../../assets/income.svg'
@@ -15,10 +14,10 @@ interface NewTransactionModalProps {
 }
 
 export function NewTransactionModal({ isOpen, onRequestClose }: NewTransactionModalProps) {
-  const transactions = useContext(TransactionsContext);
+  const { createTransaction } = useContext(TransactionsContext);
 
   const [title, setTitle] = useState('');
-  const [value, setValue] = useState(1);
+  const [amount, setAmount] = useState(1);
   const [category, setCategory] = useState('')
   const [type, setType,] = useState('deposit');
 
@@ -27,7 +26,12 @@ export function NewTransactionModal({ isOpen, onRequestClose }: NewTransactionMo
     //prevent the default access to another route after form submit
     event.preventDefault();
 
-
+    createTransaction({
+      title,
+      amount,
+      category,
+      type
+    })
   }
 
   return (
@@ -58,10 +62,10 @@ export function NewTransactionModal({ isOpen, onRequestClose }: NewTransactionMo
           type="number"
           placeholder="Valor"
           min="1"
-          value={value}
+          value={amount}
           //event.target.value always returns a string,
           //then it's need to convert to Number
-          onChange={event => setValue(Number(event.target.value))}
+          onChange={event => setAmount(Number(event.target.value))}
 
         />
         <TransactionTypeContainer>
