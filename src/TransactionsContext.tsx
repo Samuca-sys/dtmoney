@@ -16,7 +16,7 @@ interface TransactionProviderProps {
 
 interface TransactionContextData {
   transactions: Transaction[],
-  //3 - Specific return as Promise<void>  
+
   createTransaction: (transaction: TransactionInput) => Promise<void>,
 }
 
@@ -39,7 +39,6 @@ export function TransactionsProvider({ children }: TransactionProviderProps) {
   }, []);
 
   // createTransaction receives TransactionInput type
-  //2 - transform in async function that await arguments
   async function createTransaction(transaction: TransactionInput) {
 
     await api.post('/transactions', transaction)//method post route 
