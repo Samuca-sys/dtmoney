@@ -25,8 +25,8 @@ createServer({
         },
         {
           id: 2,
-          title: 'Freelance de website',
-          type: 'withdray',
+          title: 'Aluguel',
+          type: 'withdraw',
           category: 'Imóvel',
           amount: 1100,
           createdAt: new Date('2021-02-14 11:00:00'),
