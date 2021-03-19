@@ -39,9 +39,28 @@ export function TransactionsProvider({ children }: TransactionProviderProps) {
   }, []);
 
   // createTransaction receives TransactionInput type
-  async function createTransaction(transaction: TransactionInput) {
+  async function createTransaction(transactionInput: TransactionInput) {
 
-    await api.post('/transactions', transaction)//method post route 
+    //transform in constant
+    //response receives every transaction data
+    //and the createdAt attribute
+    const response = await api.post(
+      '/transactions', {
+      ...transactionInput,
+      createdAt: new Date(),
+    }//method post route 
+    )
+
+    //get response.data
+    const { transaction } = response.data;
+
+    //set Transactions with every transaction added already 
+    //and push a new one 
+    setTransactions([
+      ...transactions,
+      transaction
+    ])
+
   }
 
 
