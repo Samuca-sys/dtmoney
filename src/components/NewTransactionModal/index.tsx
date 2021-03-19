@@ -21,17 +21,20 @@ export function NewTransactionModal({ isOpen, onRequestClose }: NewTransactionMo
   const [category, setCategory] = useState('')
   const [type, setType,] = useState('deposit');
 
-
-  function handleCreateNewTransaction(event: FormEvent) {
+  //4 - transform in async function
+  async function handleCreateNewTransaction(event: FormEvent) {
     //prevent the default access to another route after form submit
     event.preventDefault();
 
-    createTransaction({
+    //1- await this function
+    await createTransaction({
       title,
       amount,
       category,
       type
     })
+
+    onRequestClose()
   }
 
   return (
