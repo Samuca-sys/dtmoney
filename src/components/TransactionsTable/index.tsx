@@ -5,7 +5,7 @@ import { Container } from "./style";
 
 
 export function TransactionTable() {
-  //10 - TransactionTable receives transactions state from TransactionsContext 
+
   const transactions = useContext(TransactionsContext)
 
   return (

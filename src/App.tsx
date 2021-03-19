@@ -23,11 +23,6 @@ export function App() {
 
   return (
 
-    //5 - App receives TransactionsProvider from TransactionsContext
-    //before: <TransactionsContext.Provider value={transactions}>
-    //after: <TransactionsProvider>
-
-    //9.5 - App is working now because <TransactionsProvider> can have a son
     <TransactionsProvider>
       <Header onOpenNewTransactionModal={handleOpenNewTransactionModal} />
       <Dashboard />
