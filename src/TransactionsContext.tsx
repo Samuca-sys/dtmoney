@@ -14,22 +14,14 @@ interface TransactionProviderProps {
   children: ReactNode
 }
 
-//2 - Create a interface to specif the transaction context data
 interface TransactionContextData {
-  //it receives Transaction array and function createTransaction
-  //with transaction: TransactionInput params and void return
   transactions: Transaction[],
   createTransaction: (transaction: TransactionInput) => void,
-
 }
 
 type TransactionInput = Omit<Transaction, 'id' | 'createdAt'>
 
-//3 - TransactionsContext receives TransactionContextData interface
-//(export const TransactionsContext = createContext<TransactionContextData>([]))
 
-//4 - Force object as TransactionContextData
-//(createContext<TransactionContextData>({ } as TransactionContextData))
 export const TransactionsContext = createContext<TransactionContextData>(
   {} as TransactionContextData
 );
@@ -53,8 +45,6 @@ export function TransactionsProvider({ children }: TransactionProviderProps) {
 
 
   return (
-    //01 - value should receive function createTrasaction
-    //(<TransactionsContext.Provider value={{transactions, createTransaction}}>)
 
     <TransactionsContext.Provider value={{ transactions, createTransaction }}>
       {children}
