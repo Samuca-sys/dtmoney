@@ -1,11 +1,13 @@
+import React, { FormEvent, useContext, useState } from 'react';
 import Modal from 'react-modal';
-import { Container, TransactionTypeContainer, RadioBox } from './styles';
+import { TransactionsContext } from '../../TransactionsContext';
+import { api } from '../../services/api';
 
 import closeImg from '../../assets/close.svg'
 import incomeImg from '../../assets/income.svg'
 import outcomeImg from '../../assets/outcome.svg'
-import React, { FormEvent, useState } from 'react';
-import { api } from '../../services/api';
+
+import { Container, TransactionTypeContainer, RadioBox } from './styles';
 
 interface NewTransactionModalProps {
   isOpen: boolean;
@@ -13,6 +15,8 @@ interface NewTransactionModalProps {
 }
 
 export function NewTransactionModal({ isOpen, onRequestClose }: NewTransactionModalProps) {
+  const transactions = useContext(TransactionsContext);
+
   const [title, setTitle] = useState('');
   const [value, setValue] = useState(1);
   const [category, setCategory] = useState('')
@@ -23,14 +27,7 @@ export function NewTransactionModal({ isOpen, onRequestClose }: NewTransactionMo
     //prevent the default access to another route after form submit
     event.preventDefault();
 
-    const data = {//data sent by method post route
-      title,
-      value,
-      category,
-      type,
-    }
 
-    api.post('/transactions', data)//method post route 
   }
 
   return (
