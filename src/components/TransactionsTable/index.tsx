@@ -1,26 +1,12 @@
-import { useEffect, useState } from "react";
-import { api } from "../../services/api";
+import { useContext } from "react";
+
+import { TransactionsContext } from "../../TransactionsContext";
 import { Container } from "./style";
 
-interface Transaction {
-  id: number,
-  title: string,
-  type: string,
-  category: string
-  amount: number,
-  createdAt: string
-}
 
 export function TransactionTable() {
-  //state receives Transaction interface as transaction array
-  const [transactions, setTransactions] = useState<Transaction[]>([]);
-
-  //request a transactions list converted to JSON from axios api
-  //then show through setState
-  useEffect(() => {
-    api.get('transactions')
-      .then(response => setTransactions(response.data.transactions))
-  }, []);
+  //10 - TransactionTable receives transactions state from TransactionsContext 
+  const transactions = useContext(TransactionsContext)
 
   return (
     <Container>
