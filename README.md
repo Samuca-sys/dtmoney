@@ -24,8 +24,8 @@
 <!-- -->  
 - [:one: About](#one-about)
 - [:two: Technologies](#two-technologies)
-- [:camera: Screenshots](#computer-screenshots)
-- [:computer: How to run](#camera-how-to-run)
+- [:camera: Screenshots](#camera-screenshots)
+- [:computer: How to run](#computer-how-to-run)
 - [:closed_book: License](#closed_book-license)
 
 ## :one: About
