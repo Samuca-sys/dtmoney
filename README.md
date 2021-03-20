@@ -1,46 +1,74 @@
-# Getting Started with Create React App
+<div class="bg-gray-dark">
+  <h1 align="center">
+    <div class="bg-gray-dark">
+    <img alt="Logo DtMoney" src="./src/assets/logo.svg" />
+    </div>
+  </h1>
+</div>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center">
+  <a href="https://www.linkedin.com/in/samuel-macedo-12a420a8">
+    <img alt="Samuel Macedo" src="https://img.shields.io/badge/-SamuelMF-009db9?style=flat&logo=Linkedin&logoColor=white" />
+  </a>
 
-## Available Scripts
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/Samuca-sys/dtmoney?color=009bd9">
 
-In the project directory, you can run:
+  <a href="https://github.com/Samuca-sys/dtmoney/commits/main">
+    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/Samuca-sys/dtmoney?color=009bd9">
+  </a>
 
-### `yarn start`
+  <img alt="License" src="https://img.shields.io/badge/license-MIT-009db9">
+</p>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## :pushpin: Menu
+<!-- -->  
+- [:one: About](#one-about)
+- [:two: Technologies](#two-technologies)
+- [:camera: Screenshot](#computer-screenshots)
+- [:computer: How to run](#camera-how-to-run)
+- [:closed_book: License](#closed_book-license)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## :one: About
+Web app to manage your deposits and withdraws using a simulated api, made for the second chapter of [RocketSeat Ignite](https://rocketseat.com.br/)
 
-### `yarn test`
+## :two: Technologies
+This project was made using the following technologies:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* [Typescript](https://www.typescriptlang.org/)
+* [ReactJS](https://pt-br.reactjs.org/)
+* [Webpack](https://webpack.js.org/)
+* [Babel](https://babeljs.io/)
+* [Styled Component](https://styled-components.com/)
+* [MirageJs](https://miragejs.com/)
+  
+## :camera: Screenshots
+<div style="display: flex; flex-direction: 'row'; align-items: 'center';">
+  <img src="./public/Home.png" width="800px">
+  <img src="./public/Modal.png" width="800px">
+</div>
 
-### `yarn build`
+## :computer: How to run
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+# Clone o Repositório
+$ git clone https://github.com/Samuca-sys/dtmoney
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+# Vá para a pasta do projeto
+$ cd dtmoney
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Instale as depedencias
+$ yarn install
 
-### `yarn eject`
+# Rode a aplicação
+$ yarn start
+```
+Available application url: http://localhost:3000/
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## :closed_book: License
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Released in 2021 :closed_book: License
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Made by [Samuel Macedo](https://github.com/Samuca-sys) 🚀.
+This project has [MIT license](./LICENSE).
